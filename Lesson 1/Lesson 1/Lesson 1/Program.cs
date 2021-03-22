@@ -60,7 +60,7 @@ namespace Lesson_1
             double h = double.Parse(Console.ReadLine());
 
             double i = m / (h * h);
-            Console.WriteLine("\nИндекс массы телав = " + i);
+            Console.WriteLine("\nИндекс массы тела = " + i);
 
             Console.WriteLine("\nДля перехода к следующей программе нажмите любую кнопку");
             Console.ReadLine();
