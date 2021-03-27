@@ -11,12 +11,13 @@ namespace Lesson_2
         static void MinValue(int a, int b, int c)
         {
             if (b < a)
-
+            {
                 if (b < c)
                     Console.WriteLine("Минимальное число: {0}", b);
                 else if (a < c)
                     Console.WriteLine("Минимальное число: {0}", a);
-                else Console.WriteLine("Минимальное число: {0}", c);
+            }
+            else Console.WriteLine("Минимальное число: {0}", c);
 
             Console.WriteLine("\nДля продолжения нажмите любую кнопку");
             Console.ReadLine();
@@ -54,11 +55,10 @@ namespace Lesson_2
                 a++;
                 AtoB(a, b, sum);
             }
-            if (a == b)
+
+            else
             {
-
                 Console.WriteLine(sum);
-
             }
         }
         static void Task1()
@@ -156,21 +156,20 @@ namespace Lesson_2
             if (imt < 16.5)
             {
                 Console.WriteLine("\nВыраженный дефицит массы");
-                double needweight = weight + 24.9 * height * height;
+                double needweight = 19 * height * height - weight;
                 Console.WriteLine("Нужно добрать " + needweight + " кг.");
             }
 
             if (imt >= 16.5 && imt < 18.49)
             {
                 Console.WriteLine("\nНедостаточная (дефицит) масса тела");
-                double needweight = weight + 24.9 * height * height;
+                double needweight = 19 * height * height - weight;
                 Console.WriteLine("Нужно добрать " + needweight + " кг.");
             }
 
             if (imt >= 18.5 && imt < 24.99)
             {
                 Console.WriteLine("\nНорма");
-                double needweight = weight + 24.9 * height * height;
                 Console.WriteLine("У Вас отличный вес так держать");
             }
 
@@ -229,8 +228,6 @@ namespace Lesson_2
                 if (i % sum == 0)
                 {
                     counter++;
-                    // Console.WriteLine(i);
-                    //Console.WriteLine(sum);
                 }
 
             }
