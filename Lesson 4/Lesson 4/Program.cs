@@ -403,54 +403,96 @@ namespace Lesson_4
 
 
             Console.Clear();
-            Console.WriteLine("Программа подсчета пар элементов в массиве\n");
+            Console.WriteLine("Программа работы с двумерным массивом\n");
+            MyTwoDimensionArray array;
+            MyTwoDimensionArray array2;
 
-            do
+
+            Console.WriteLine("У вас две возможности\n");
+            Console.WriteLine("Возможность 1: Ввести массив с клавиатуры");
+            Console.WriteLine("Возможность 2: Массив заполнится сам из файла");
+
+            Console.Write("\nДля продолжения выберите номер возможности: ");
+            res = int.TryParse(Console.ReadLine(), out int number);
+            if (res)
             {
-                Console.Write("Введите количество строк: ");
-                x = Check(ref res);
-
-            } while (!res);
-
-            do
-            {
-                Console.Write("Введите количество столбцов: ");
-                y = Check(ref res);
-
-            } while (!res);
-            do
-            {
-                Console.Write("Введите число выше которого будет считаться сумма: ");
-                num = Check(ref res);
-
-            } while (!res);
-            Console.Clear();
-            Console.WriteLine($"Количество строк массива {x} и количество столбцов {y}\n");
-
-            MyTwoDimensionArray array = new MyTwoDimensionArray(x, y);
-
-            Console.WriteLine("Элементы двумерного массива:");
-            for (int j = 0; j < array.GetLengthY; j++)
-            {
-                for (int i = 0; i < array.GetLengthX; i++)
+                switch (number)
                 {
-                    Console.Write($"{array[i, j]} ");
+                    case 1:
+                        do
+                        {
+                            Console.Write("Введите количество строк: ");
+                            x = Check(ref res);
+
+                        } while (!res);
+
+                        do
+                        {
+                            Console.Write("Введите количество столбцов: ");
+                            y = Check(ref res);
+
+                        } while (!res);
+                        do
+                        {
+                            Console.Write("Введите число выше которого будет считаться сумма: ");
+                            num = Check(ref res);
+
+                        } while (!res);
+                        Console.Clear();
+                        Console.WriteLine($"Количество строк массива {x} и количество столбцов {y}\n");
+
+                        array = new MyTwoDimensionArray(x, y);
+                        Console.WriteLine("Элементы двумерного массива:");
+
+                        for (int j = 0; j < array.GetLengthY; j++)
+                        {
+                            for (int i = 0; i < array.GetLengthX; i++)
+                            {
+                                Console.Write($"{array[i, j]} ");
+                            }
+                            Console.WriteLine();
+                        }
+
+                        array.Index(ref X, ref Y);
+                        Console.WriteLine($"\n\nСумма элементов = {array.Sum()} ");
+                        Console.WriteLine($"\nСумма элементов больше {num} = {array.SumOver(num)}");
+                        Console.WriteLine($"\nМинимальный элемент {array.Min}");
+                        Console.WriteLine($"\nМаксимальный  элемент {array.Max} и его индекс {Y},{X}");
+                        MyTwoDimensionArray.SaveToFile(array.Elements, AppDomain.CurrentDomain.BaseDirectory + "TwoArrayList.txt");
+
+                        break;
+                    case 2:
+                        do
+                        {
+                            Console.Write("Введите число выше которого будет считаться сумма: ");
+                            num = Check(ref res);
+
+                        } while (!res);
+                        array2 = new MyTwoDimensionArray(MyTwoDimensionArray.LoadFromFile(AppDomain.CurrentDomain.BaseDirectory + "TwoArrayList.txt"));
+                        Console.WriteLine();
+                        for (int j = 0; j < array2.GetLengthY; j++)
+                        {
+                            for (int i = 0; i < array2.GetLengthX; i++)
+                            {
+                                Console.Write($"{array2[i, j]} ");
+                            }
+                            Console.WriteLine();
+                        }
+                        array2.Index(ref X, ref Y);
+                        Console.WriteLine($"\n\nСумма элементов = {array2.Sum()} ");
+                        Console.WriteLine($"\nСумма элементов больше {num} = {array2.SumOver(num)}");
+                        Console.WriteLine($"\nМинимальный элемент {array2.Min}");
+                        Console.WriteLine($"\nМаксимальный  элемент {array2.Max} и его индекс {Y},{X}");
+                        break;
                 }
-                Console.WriteLine();
             }
-            array.Index(ref X, ref Y);
-            Console.WriteLine($"\n\nСумма элементов = {array.Sum()}");
-            Console.WriteLine($"\nСумма элементов больше {num} = {array.SumOver(num)}");
-            Console.WriteLine($"\nМинимальный элемент {array.Min}");
-            Console.WriteLine($"\nМаксимальный  элемент {array.Max} и его индекс {Y},{X}");
-
-            //array.SaveToFile(AppDomain.CurrentDomain.BaseDirectory + "TwoArrayList.txt");
-            //array.SaveToFile("TwoArrayList.txt");
-           MyTwoDimensionArray.SaveToFile(array.Elements, AppDomain.CurrentDomain.BaseDirectory + "TwoArrayList.txt");
-
-
+            else
+            {
+                Console.WriteLine("Вы ввели некорректное число");
+            }
+            
             Continue();
-        } 
+        }
 
         #endregion
 

@@ -26,7 +26,7 @@ namespace MyTwoArray
             {
                 for (int i = 0; i < array.GetLength(1); i++)
                 {
-                    array[i, j] = rand.Next(-10000, 10000);
+                    array[j, i] = rand.Next(-10000, 10000);
                 }
             }
             this.array = array;
@@ -84,7 +84,7 @@ namespace MyTwoArray
                 for (int i = 0; i < array.GetLength(1); i++)
                 {
                     if (array[j, i] > over)
-                        sum += array[i, j];
+                        sum += array[j,i];
                 }
             return sum;
         }
@@ -137,30 +137,32 @@ namespace MyTwoArray
 
         }
 
-        //public static int[] LoadFromFile(string fileName, ref int size)
-        //{
-        //    if (File.Exists(fileName))
-        //    {
-        //        StreamReader reader = new StreamReader(fileName);
-        //        size = int.Parse(reader.ReadLine());
+        public static int[,] LoadFromFile(string fileName)
+        {
+            int sizeX, sizeY;
+            if (File.Exists(fileName))
+            {
+                StreamReader reader = new StreamReader(fileName);
+                sizeX = int.Parse(reader.ReadLine());
+                sizeY = int.Parse(reader.ReadLine());
 
-        //        var array = new int[size];
-        //        for (int j = 0; j < array.GetLength(0); j++)
-        //            for (int i = 0; i < array.GetLength(1); i++)
-        //            {
-        //                if (int.TryParse(reader.ReadLine(), out int num))
-        //                    array[i,j] = num;
-        //            }
-        //        reader.Close();
-        //        return array;
-        //    }
-        //    else
-        //    {
-        //        throw new FileNotFoundException();
-        //    }
-        //}
+                var array = new int[sizeX, sizeY];
+                for (int j = 0; j < array.GetLength(0); j++)
+                    for (int i = 0; i < array.GetLength(1); i++)
+                    {
+                        if (int.TryParse(reader.ReadLine(), out int num))
+                            array[j, i] = num;
+                    }
+                reader.Close();
+                return array;
+            }
+            else
+            {
+                throw new FileNotFoundException();
+            }
+        }
 
-       public static void SaveToFile(int[,] array, string fileName)
+        public static void SaveToFile(int[,] array, string fileName)
         //public void SaveToFile(string fileName)
         {
             if (File.Exists(fileName))
@@ -174,7 +176,7 @@ namespace MyTwoArray
                     {
                         writer.WriteLine($"{array[j, i]} ");
                     }
-                    writer.WriteLine();
+
                 }
                 writer.Close();
             }
