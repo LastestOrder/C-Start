@@ -98,7 +98,7 @@ namespace MyTwoArray
                     for (int i = 0; i < array.GetLength(1); i++)
                     {
                         if (array[j, i] > max)
-                            max = array[i, j];
+                            max = array[j,i];
                     }
                 return max;
             }
@@ -113,7 +113,7 @@ namespace MyTwoArray
                     for (int i = 0; i < array.GetLength(1); i++)
                     {
                         if (array[j, i] < min)
-                            min = array[i, j];
+                            min = array[j,i];
                     }
                 return min;
             }
@@ -129,8 +129,8 @@ namespace MyTwoArray
                     if (array[j, i] == maxElem)
                     {
                         maxElem = array[i, j];
-                        X = i;
-                        Y = j;
+                        Y = i;
+                        X = j;
                     }
 
                 }

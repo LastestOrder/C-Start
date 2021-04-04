@@ -107,7 +107,7 @@ namespace MyArrayNew
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] == max)
-                    array[i] = 0;
+                    array[i] = -11000;
             }
             return array;
         }
