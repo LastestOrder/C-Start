@@ -178,7 +178,7 @@ namespace Lesson_5
                             #endregion
 
                             case 2:
-                                Regex regex = new Regex(@"^[^0-9]?=*[a-zA-Z].{2,8}$");
+                                Regex regex = new Regex(@"^[^0-9][a-zA-Z\d].{0,8}$");
                                 if (regex.IsMatch(login))
                                 {
                                     Console.WriteLine("\nЛогин введен по всем правилам");
