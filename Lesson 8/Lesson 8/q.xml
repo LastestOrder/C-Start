@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ArrayOfQuestion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Question>
+    <Text>Земля круглая?</Text>
+    <TrueFalse>true</TrueFalse>
+  </Question>
+  <Question>
+    <Text>В Китае ученики на доске пишут кисточкой с цветными чернилами?</Text>
+    <TrueFalse>true</TrueFalse>
+  </Question>
+  <Question>
+    <Text>Шариковая ручка сначала применялась только военными летчиками?</Text>
+    <TrueFalse>true</TrueFalse>
+  </Question>
+  <Question>
+    <Text>В Китае выпускаются витаминизированные карандаши для детей, имеющих обыкновение грызть, что попало? </Text>
+    <TrueFalse>true</TrueFalse>
+  </Question>
+  <Question>
+    <Text>В Китае практикуется применение одноразовых школьных досок? </Text>
+    <TrueFalse>false</TrueFalse>
+  </Question>
+  <Question>
+    <Text>Мойву эскимосы сушат и едят вместо хлеба? </Text>
+    <TrueFalse>true</TrueFalse>
+  </Question>
+  <Question>
+    <Text>Рой Салливан (США) выжил после того, как в него с разными интервалами попадали двадцать молний?</Text>
+    <TrueFalse>false</TrueFalse>
+  </Question>
+  <Question>
+    <Text>Джеки Барби (США) удерживал во рту двадцать гремучих змей в течение двенадцати с половиной секунд?</Text>
+    <TrueFalse>false</TrueFalse>
+  </Question>
+</ArrayOfQuestion>
